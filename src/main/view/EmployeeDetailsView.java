@@ -31,7 +31,6 @@ import main.classes.Salary;
 
 public class EmployeeDetailsView {
 
-
     // Constant Variables
     private static final String ATTENDANCE_CSV = System.getProperty("user.dir") + "/src/main/resources/attendance.csv";
     
@@ -55,7 +54,7 @@ public class EmployeeDetailsView {
 		
 		// Set Frame
 		JFrame frame = new JFrame();
-        frame.setSize(400, 300);
+        frame.setSize(450, 450);
         frame.setTitle("MotorPH Employee App");
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -88,67 +87,7 @@ public class EmployeeDetailsView {
         
         computeButton = new JButton("Compute");
         computeButton.setPreferredSize(new Dimension(150, 50));
-        
-        // Define the panel to hold the components  
-        JPanel panel = new JPanel();
-        SpringLayout layout = new SpringLayout();
-        panel.setLayout(layout);
-       
-        // Add the components to the frame
-        panel.add(lblHeader);
-        panel.add(lblHeader2);
-        panel.add(lblEmployeeNumber);
-        panel.add(txtEmployeeNumber);
-        panel.add(lblEmployeeName);
-        panel.add(txtEmployeeName);
-        panel.add(lblYear);
-        panel.add(txtYear);
-        panel.add(lblMonth);
-        panel.add(cbMonth);
-        panel.add(computeButton);
-        
-        // Put constraint on components       
-        // Employee Details Section
-        // Set label and textfield position: top and bottom
-        layout.putConstraint(SpringLayout.NORTH, lblHeader, 20, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblHeader, 0, SpringLayout.HORIZONTAL_CENTER, panel);
-        
-        layout.putConstraint(SpringLayout.NORTH, lblEmployeeNumber, 20, SpringLayout.SOUTH, lblHeader);
-        layout.putConstraint(SpringLayout.WEST, lblEmployeeNumber, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, txtEmployeeNumber, 20, SpringLayout.SOUTH, lblHeader);
-        layout.putConstraint(SpringLayout.WEST, txtEmployeeNumber, 18, SpringLayout.EAST, lblEmployeeNumber);
 
-        layout.putConstraint(SpringLayout.NORTH, lblEmployeeName, 10, SpringLayout.SOUTH, lblEmployeeNumber);
-        layout.putConstraint(SpringLayout.WEST, lblEmployeeName, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, txtEmployeeName, 6, SpringLayout.SOUTH, txtEmployeeNumber);
-        layout.putConstraint(SpringLayout.WEST, txtEmployeeName, 30, SpringLayout.EAST, lblEmployeeName);
-        
-        // Calculate Salary Section
-        layout.putConstraint(SpringLayout.NORTH, lblHeader2, 40, SpringLayout.NORTH, lblEmployeeName);
-        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblHeader2, 0, SpringLayout.HORIZONTAL_CENTER, panel);
-        
-        layout.putConstraint(SpringLayout.NORTH, lblYear, 20, SpringLayout.SOUTH, lblHeader2);
-        layout.putConstraint(SpringLayout.WEST, lblYear, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, txtYear, 10, SpringLayout.SOUTH, lblYear);
-        layout.putConstraint(SpringLayout.WEST, txtYear, 10, SpringLayout.WEST, panel);
-
-        layout.putConstraint(SpringLayout.NORTH, lblMonth, 20, SpringLayout.SOUTH, lblHeader2);
-        layout.putConstraint(SpringLayout.WEST, lblMonth, 30, SpringLayout.EAST, lblYear);
-        layout.putConstraint(SpringLayout.NORTH, cbMonth, 10, SpringLayout.SOUTH, lblMonth);
-        layout.putConstraint(SpringLayout.WEST, cbMonth, 30, SpringLayout.EAST, txtYear);
-        
-        // Set button position
-        layout.putConstraint(SpringLayout.NORTH, computeButton, 20, SpringLayout.SOUTH, lblHeader2);
-        layout.putConstraint(SpringLayout.WEST, computeButton, 20, SpringLayout.EAST, cbMonth);
-
-
-        //Add panel to frame
-        mainPanel.add(panel);
-        
-        lblHeader3 = new JLabel("MotorPH Salary Computation");
-        lblHeader3.setFont(new Font("Calibri", Font.BOLD, 20));
-        
-        // sss, philHealth, tin, pagibig, birthday, hourlyRate, basicSalary);
         lblSSSNo = new JLabel("SSS No:");
         txtSSSNo = new JTextField(10);
         txtSSSNo.setEnabled(false);
@@ -188,6 +127,129 @@ public class EmployeeDetailsView {
         txtPosition = new JTextField(15);
         txtPosition.setEnabled(false);
         txtPosition.setText(employee.getPosition());
+        
+        // Define the panel to hold the components  
+        JPanel panel = new JPanel();
+        SpringLayout layout = new SpringLayout();
+        panel.setLayout(layout);
+       
+        // Add the components to the frame
+        panel.add(lblHeader);
+        panel.add(lblHeader2);
+        panel.add(lblEmployeeNumber);
+        panel.add(txtEmployeeNumber);
+        panel.add(lblEmployeeName);
+        panel.add(txtEmployeeName);
+        panel.add(lblYear);
+        panel.add(txtYear);
+        panel.add(lblMonth);
+        panel.add(cbMonth);
+        panel.add(computeButton);
+
+        panel.add(lblSSSNo);
+        panel.add(txtSSSNo);
+
+        panel.add(lblPhilHealthNo);
+        panel.add(txtPhilHealthNo);
+
+        panel.add(lblTIN);
+        panel.add(txtTIN);
+
+        panel.add(lblPagibigNo);
+        panel.add(txtPagibigNo);
+
+        panel.add(lblBirthday);
+        panel.add(txtBirthday);
+
+        panel.add(lblHourlyRate);
+        panel.add(txtHourlyRate);
+
+        panel.add(lblBasicSalary);
+        panel.add(txtBasicSalary);
+
+        panel.add(lblPosition);
+        panel.add(txtPosition);
+        
+        // Put constraint on components       
+        // Employee Details Section
+        // Set label and textfield position: top and bottom
+        layout.putConstraint(SpringLayout.NORTH, lblHeader, 20, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblHeader, 0, SpringLayout.HORIZONTAL_CENTER, panel);
+        
+        layout.putConstraint(SpringLayout.NORTH, lblEmployeeNumber, 20, SpringLayout.SOUTH, lblHeader);
+        layout.putConstraint(SpringLayout.WEST, lblEmployeeNumber, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, txtEmployeeNumber, 20, SpringLayout.SOUTH, lblHeader);
+        layout.putConstraint(SpringLayout.WEST, txtEmployeeNumber, 18, SpringLayout.EAST, lblEmployeeNumber);
+
+        layout.putConstraint(SpringLayout.NORTH, lblEmployeeName, 10, SpringLayout.SOUTH, lblEmployeeNumber);
+        layout.putConstraint(SpringLayout.WEST, lblEmployeeName, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, txtEmployeeName, 6, SpringLayout.SOUTH, txtEmployeeNumber);
+        layout.putConstraint(SpringLayout.WEST, txtEmployeeName, 30, SpringLayout.EAST, lblEmployeeName);
+
+        layout.putConstraint(SpringLayout.NORTH, lblBirthday, 10, SpringLayout.SOUTH, lblEmployeeName);
+        layout.putConstraint(SpringLayout.WEST, lblBirthday, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, txtBirthday, 6, SpringLayout.SOUTH, txtEmployeeName);
+        layout.putConstraint(SpringLayout.WEST, txtBirthday, 30, SpringLayout.EAST, lblBirthday);
+
+        layout.putConstraint(SpringLayout.NORTH, lblPosition, 10, SpringLayout.SOUTH, lblEmployeeName);
+        layout.putConstraint(SpringLayout.WEST, lblPosition, 20, SpringLayout.EAST, txtBirthday);
+        layout.putConstraint(SpringLayout.NORTH, txtPosition, 6, SpringLayout.SOUTH, txtEmployeeName);
+        layout.putConstraint(SpringLayout.EAST, txtPosition, -10, SpringLayout.EAST, panel);
+
+        layout.putConstraint(SpringLayout.NORTH, lblSSSNo, 10, SpringLayout.SOUTH, lblBirthday);
+        layout.putConstraint(SpringLayout.WEST, lblSSSNo, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, txtSSSNo, 6, SpringLayout.SOUTH, lblPosition);
+        layout.putConstraint(SpringLayout.WEST, txtSSSNo, 35, SpringLayout.EAST, lblSSSNo);
+
+        layout.putConstraint(SpringLayout.NORTH, lblPhilHealthNo, 10, SpringLayout.SOUTH, lblPosition);
+        layout.putConstraint(SpringLayout.WEST, lblPhilHealthNo, 20, SpringLayout.EAST, txtSSSNo);
+        layout.putConstraint(SpringLayout.NORTH, txtPhilHealthNo, 6, SpringLayout.SOUTH, txtPosition);
+        layout.putConstraint(SpringLayout.EAST, txtPhilHealthNo, -10, SpringLayout.EAST, panel);
+
+        layout.putConstraint(SpringLayout.NORTH, lblPagibigNo, 10, SpringLayout.SOUTH, lblSSSNo);
+        layout.putConstraint(SpringLayout.WEST, lblPagibigNo, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, txtPagibigNo, 6, SpringLayout.SOUTH, lblPhilHealthNo);
+        layout.putConstraint(SpringLayout.WEST, txtPagibigNo, 16, SpringLayout.EAST, lblPagibigNo);
+
+        layout.putConstraint(SpringLayout.NORTH, lblTIN, 10, SpringLayout.SOUTH, lblPhilHealthNo);
+        layout.putConstraint(SpringLayout.WEST, lblTIN, 20, SpringLayout.EAST, txtPagibigNo);
+        layout.putConstraint(SpringLayout.NORTH, txtTIN, 6, SpringLayout.SOUTH, txtPhilHealthNo);
+        layout.putConstraint(SpringLayout.EAST, txtTIN, -10, SpringLayout.EAST, panel);
+
+        layout.putConstraint(SpringLayout.NORTH, lblBasicSalary, 10, SpringLayout.SOUTH, lblPagibigNo);
+        layout.putConstraint(SpringLayout.WEST, lblBasicSalary, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, txtBasicSalary, 6, SpringLayout.SOUTH, txtPagibigNo);
+        layout.putConstraint(SpringLayout.WEST, txtBasicSalary, 10, SpringLayout.EAST, lblBasicSalary);
+
+        layout.putConstraint(SpringLayout.NORTH, lblHourlyRate, 10, SpringLayout.SOUTH, lblTIN);
+        layout.putConstraint(SpringLayout.WEST, lblHourlyRate, 20, SpringLayout.EAST, txtBasicSalary);
+        layout.putConstraint(SpringLayout.NORTH, txtHourlyRate, 6, SpringLayout.SOUTH, txtTIN);
+        layout.putConstraint(SpringLayout.EAST, txtHourlyRate, -10, SpringLayout.EAST, panel);
+        
+        // Calculate Salary Section
+        layout.putConstraint(SpringLayout.NORTH, lblHeader2, 40, SpringLayout.SOUTH, lblBasicSalary);
+        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblHeader2, 0, SpringLayout.HORIZONTAL_CENTER, panel);
+        
+        layout.putConstraint(SpringLayout.NORTH, lblYear, 20, SpringLayout.SOUTH, lblHeader2);
+        layout.putConstraint(SpringLayout.WEST, lblYear, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, txtYear, 10, SpringLayout.SOUTH, lblYear);
+        layout.putConstraint(SpringLayout.WEST, txtYear, 10, SpringLayout.WEST, panel);
+
+        layout.putConstraint(SpringLayout.NORTH, lblMonth, 20, SpringLayout.SOUTH, lblHeader2);
+        layout.putConstraint(SpringLayout.WEST, lblMonth, 30, SpringLayout.EAST, lblYear);
+        layout.putConstraint(SpringLayout.NORTH, cbMonth, 10, SpringLayout.SOUTH, lblMonth);
+        layout.putConstraint(SpringLayout.WEST, cbMonth, 30, SpringLayout.EAST, txtYear);
+        
+        // Set button position
+        layout.putConstraint(SpringLayout.NORTH, computeButton, 20, SpringLayout.SOUTH, lblHeader2);
+        layout.putConstraint(SpringLayout.WEST, computeButton, 20, SpringLayout.EAST, cbMonth);
+
+
+        //Add panel to frame
+        mainPanel.add(panel);
+        
+        lblHeader3 = new JLabel("MotorPH Salary Computation");
+        lblHeader3.setFont(new Font("Calibri", Font.BOLD, 20));
         
         lblYear2 = new JLabel("Year:");
         txtYear2 = new JTextField(10);
@@ -235,32 +297,7 @@ public class EmployeeDetailsView {
         panel2.add(lblYear2);
         panel2.add(txtYear2);
         panel2.add(lblMonth2);
-        panel2.add(txtMonth);
-
-        panel2.add(lblSSSNo);
-        panel2.add(txtSSSNo);
-
-        panel2.add(lblPhilHealthNo);
-        panel2.add(txtPhilHealthNo);
-
-        panel2.add(lblTIN);
-        panel2.add(txtTIN);
-
-        panel2.add(lblPagibigNo);
-        panel2.add(txtPagibigNo);
-
-        panel2.add(lblBirthday);
-        panel2.add(txtBirthday);
-
-        panel2.add(lblHourlyRate);
-        panel2.add(txtHourlyRate);
-
-        panel2.add(lblBasicSalary);
-        panel2.add(txtBasicSalary);
-
-        panel2.add(lblPosition);
-        panel2.add(txtPosition);
-        
+        panel2.add(txtMonth);        
         panel2.add(lblGrossWage);
         panel2.add(txtGrossWage);
         panel2.add(lblDeductions);
@@ -282,54 +319,14 @@ public class EmployeeDetailsView {
         layout2.putConstraint(SpringLayout.NORTH, lblHeader3, 20, SpringLayout.NORTH, panel2);
         layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblHeader3, 0, SpringLayout.HORIZONTAL_CENTER, panel2);
 
-        layout2.putConstraint(SpringLayout.NORTH, lblBirthday, 10, SpringLayout.SOUTH, lblHeader3);
-        layout2.putConstraint(SpringLayout.WEST, lblBirthday, 10, SpringLayout.WEST, panel2);
-        layout2.putConstraint(SpringLayout.NORTH, txtBirthday, 6, SpringLayout.SOUTH, lblHeader3);
-        layout2.putConstraint(SpringLayout.WEST, txtBirthday, 30, SpringLayout.EAST, lblBirthday);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblPosition, 10, SpringLayout.SOUTH, lblHeader3);
-        layout2.putConstraint(SpringLayout.WEST, lblPosition, 20, SpringLayout.EAST, txtBirthday);
-        layout2.putConstraint(SpringLayout.NORTH, txtPosition, 6, SpringLayout.SOUTH, lblHeader3);
-        layout2.putConstraint(SpringLayout.EAST, txtPosition, -10, SpringLayout.EAST, panel2);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblSSSNo, 10, SpringLayout.SOUTH, lblBirthday);
-        layout2.putConstraint(SpringLayout.WEST, lblSSSNo, 10, SpringLayout.WEST, panel2);
-        layout2.putConstraint(SpringLayout.NORTH, txtSSSNo, 6, SpringLayout.SOUTH, lblPosition);
-        layout2.putConstraint(SpringLayout.WEST, txtSSSNo, 35, SpringLayout.EAST, lblSSSNo);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblPhilHealthNo, 10, SpringLayout.SOUTH, lblPosition);
-        layout2.putConstraint(SpringLayout.WEST, lblPhilHealthNo, 20, SpringLayout.EAST, txtSSSNo);
-        layout2.putConstraint(SpringLayout.NORTH, txtPhilHealthNo, 6, SpringLayout.SOUTH, txtPosition);
-        layout2.putConstraint(SpringLayout.EAST, txtPhilHealthNo, -10, SpringLayout.EAST, panel2);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblPagibigNo, 10, SpringLayout.SOUTH, lblSSSNo);
-        layout2.putConstraint(SpringLayout.WEST, lblPagibigNo, 10, SpringLayout.WEST, panel2);
-        layout2.putConstraint(SpringLayout.NORTH, txtPagibigNo, 6, SpringLayout.SOUTH, lblPhilHealthNo);
-        layout2.putConstraint(SpringLayout.WEST, txtPagibigNo, 16, SpringLayout.EAST, lblPagibigNo);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblTIN, 10, SpringLayout.SOUTH, lblPhilHealthNo);
-        layout2.putConstraint(SpringLayout.WEST, lblTIN, 20, SpringLayout.EAST, txtPagibigNo);
-        layout2.putConstraint(SpringLayout.NORTH, txtTIN, 6, SpringLayout.SOUTH, txtPhilHealthNo);
-        layout2.putConstraint(SpringLayout.EAST, txtTIN, -10, SpringLayout.EAST, panel2);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblBasicSalary, 10, SpringLayout.SOUTH, lblPagibigNo);
-        layout2.putConstraint(SpringLayout.WEST, lblBasicSalary, 10, SpringLayout.WEST, panel2);
-        layout2.putConstraint(SpringLayout.NORTH, txtBasicSalary, 6, SpringLayout.SOUTH, txtPagibigNo);
-        layout2.putConstraint(SpringLayout.WEST, txtBasicSalary, 10, SpringLayout.EAST, lblBasicSalary);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblHourlyRate, 10, SpringLayout.SOUTH, lblTIN);
-        layout2.putConstraint(SpringLayout.WEST, lblHourlyRate, 20, SpringLayout.EAST, txtBasicSalary);
-        layout2.putConstraint(SpringLayout.NORTH, txtHourlyRate, 6, SpringLayout.SOUTH, txtTIN);
-        layout2.putConstraint(SpringLayout.EAST, txtHourlyRate, -10, SpringLayout.EAST, panel2);
-
-        layout2.putConstraint(SpringLayout.NORTH, lblYear2, 20, SpringLayout.SOUTH, lblBasicSalary);
+        layout2.putConstraint(SpringLayout.NORTH, lblYear2, 20, SpringLayout.SOUTH, lblHeader3);
         layout2.putConstraint(SpringLayout.WEST, lblYear2, 10, SpringLayout.WEST, panel2);
-        layout2.putConstraint(SpringLayout.NORTH, txtYear2, 16, SpringLayout.SOUTH, txtBasicSalary);
+        layout2.putConstraint(SpringLayout.NORTH, txtYear2, 16, SpringLayout.SOUTH, lblHeader3);
         layout2.putConstraint(SpringLayout.WEST, txtYear2, 10, SpringLayout.EAST, lblYear2);
 
-        layout2.putConstraint(SpringLayout.NORTH, lblMonth2, 20, SpringLayout.SOUTH, lblHourlyRate);
+        layout2.putConstraint(SpringLayout.NORTH, lblMonth2, 20, SpringLayout.SOUTH, lblHeader3);
         layout2.putConstraint(SpringLayout.WEST, lblMonth2, 20, SpringLayout.EAST, txtYear2);
-        layout2.putConstraint(SpringLayout.NORTH, txtMonth, 16, SpringLayout.SOUTH, txtHourlyRate);
+        layout2.putConstraint(SpringLayout.NORTH, txtMonth, 16, SpringLayout.SOUTH, lblHeader3);
         layout2.putConstraint(SpringLayout.WEST, txtMonth, 10, SpringLayout.EAST, lblMonth2);
 
         layout2.putConstraint(SpringLayout.NORTH, lblGrossWage, 20, SpringLayout.SOUTH, lblYear2);
@@ -383,14 +380,14 @@ public class EmployeeDetailsView {
                     	displayComputation(frame, panel2, employee, year, month);
                     } else {
                         panel2.setVisible(false);
-                        frame.setSize(400, 300);
+                        frame.setSize(450, 450);
                         frame.setLocationRelativeTo(null);
                     	JOptionPane.showMessageDialog(null, "Invalid Year Input", "ERROR!", JOptionPane.ERROR_MESSAGE);
                     }
                 	
                 } catch (NumberFormatException e1) {
                     panel2.setVisible(false);
-                    frame.setSize(400, 300);
+                    frame.setSize(450, 450);
                     frame.setLocationRelativeTo(null);
                     Logger.getLogger(MotorPH.class.getName()).log(Level.SEVERE, null, e1);
                 	JOptionPane.showMessageDialog(null, "Invalid Year Input", "ERROR!", JOptionPane.ERROR_MESSAGE);
@@ -422,7 +419,7 @@ public class EmployeeDetailsView {
         }
         else {
             panel2.setVisible(false);
-            frame.setSize(400, 300);
+            frame.setSize(450, 450);
             frame.setLocationRelativeTo(null);
         	JOptionPane.showMessageDialog(null, "No attendance record found for " + MONTHS[month] + " " + year, "ERROR!", JOptionPane.ERROR_MESSAGE);
         }

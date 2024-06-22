@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,7 +33,7 @@ public class EmployeeListView {
     // Variables needed for the Search Employee View
     private BufferedReader employeeDetailsReader = null;
     private JLabel lblHeader;
-    private JButton viewEmployeeButton;
+    private JButton viewButton, addButton, updateButton, deleteButton;
     
     JTable table;
     String[] columnNames = {"Employee Number", "Last Name", "First Name", "SSS No.", "PhilHealth No", "TIN", "Pagibig No."};
@@ -57,8 +58,20 @@ public class EmployeeListView {
         //getEmployeesList(model);
         JScrollPane sp = new JScrollPane(table);
         sp.setPreferredSize(new java.awt.Dimension(650,400));
+
+        // Set Button Panel
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
         
-        viewEmployeeButton = new JButton("View Employee");
+        viewButton = new JButton("View Employee");
+        addButton = new JButton("Add Employee");
+        updateButton = new JButton("Update Employee");
+        deleteButton = new JButton("Delete Employee");
+        
+        buttonPanel.add(viewButton);
+        buttonPanel.add(addButton);
+        buttonPanel.add(updateButton);
+        buttonPanel.add(deleteButton);
        
         // Define the panel to hold the components  
         JPanel panel = new JPanel();
@@ -67,7 +80,7 @@ public class EmployeeListView {
        
         // Add the components to the frame
         panel.add(lblHeader);
-        panel.add(viewEmployeeButton);
+        panel.add(buttonPanel);
         panel.add(sp);
  
         // Put constraint on components       
@@ -79,8 +92,8 @@ public class EmployeeListView {
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, sp, 0, SpringLayout.HORIZONTAL_CENTER, panel);
        
         // Set button position
-        layout.putConstraint(SpringLayout.NORTH, viewEmployeeButton, 20, SpringLayout.SOUTH, sp);
-        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, viewEmployeeButton, 0, SpringLayout.HORIZONTAL_CENTER, panel);
+        layout.putConstraint(SpringLayout.NORTH, buttonPanel, 20, SpringLayout.SOUTH, sp);
+        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, buttonPanel, 0, SpringLayout.HORIZONTAL_CENTER, panel);
 
 
         //Add panel to frame
@@ -88,7 +101,7 @@ public class EmployeeListView {
         frame.setVisible(true);
 
         // Add an ActionListener to the button
-        viewEmployeeButton.addActionListener(new ActionListener() {
+        viewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	try {
                 	int selectedTableRow = table.getSelectedRow();
@@ -104,6 +117,15 @@ public class EmployeeListView {
                     Logger.getLogger(MotorPH.class.getName()).log(Level.SEVERE, null, e2);
             		JOptionPane.showMessageDialog(null, "Select an employee from the list.", "ERROR!", JOptionPane.ERROR_MESSAGE);
             	}
+            }
+        });
+
+        // Add an ActionListener to the button
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	
+            	new AddEmployeeView();
+        		frame.dispose();
             }
         });
 	}
