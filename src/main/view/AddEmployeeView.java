@@ -206,7 +206,6 @@ public class AddEmployeeView {
 		            Path filePath = Paths.get(EMPLOYEE_DETAILS_CSV);
 
 		            StringBuilder stringBuilder = new StringBuilder();
-		            stringBuilder.append(System.lineSeparator());
 		            stringBuilder.append(employeeNumber);
 		            stringBuilder.append(',');
 		            stringBuilder.append(lastName);
@@ -236,6 +235,7 @@ public class AddEmployeeView {
 		            stringBuilder.append(',');
 		            stringBuilder.append(',');
 		            stringBuilder.append(hourlyRate);
+		            stringBuilder.append(System.lineSeparator());
 
 		            Files.write(filePath, stringBuilder.toString().getBytes(), StandardOpenOption.APPEND);
 		            
